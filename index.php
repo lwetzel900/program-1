@@ -10,7 +10,7 @@
 //  left aligned black text on a white background. I use the "I know it when I see it" standard.
 //Hint: Store the answer and/or the problem in the form as hidden inputs. 
 //  This will enable your script to "remember" the original problem when the user submits the answer.
-    $var = 'changing the original repo?';
+    $var = 4;
 ?>
 <html>
     <head>
@@ -26,7 +26,10 @@
         <input type="text" name="answer"><br>
         
         <input type="hidden" name="answerHide"
-               value="<?php echo $_GET['answer']; ?>">
+               value="<?php echo $var; ?>">
+        
+        <label>&nbsp;</label>
+                <input type="submit" value="Send"><br>
         
         </form>
     </body>
