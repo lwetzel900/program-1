@@ -1,12 +1,12 @@
 <?php
 
-$answer = filter_input(INPUT_GET, 'answer');
+$answer = filter_input(INPUT_GET, 'answer', FILTER_VALIDATE_INT);
+$rightAnswer = filter_input(INPUT_GET, 'answerHide');
 
-
-if ($stuff === $password){
-    $message = 'you guessed it!';
+if ($answer === $rightAnswer){
+    $message = 'You got it right!!!';
 }else {
-    $message = 'nope';
+    $message = 'Try again!!!';
 }
 
 var_dump($answer);
@@ -15,9 +15,10 @@ var_dump($answer);
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Loren Wetzel</title>
     </head>  
     <body>
+        <h1><?PHP echo $message?></h1>
         <h2>
             <?php
             echo $answer
