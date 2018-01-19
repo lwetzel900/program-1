@@ -17,8 +17,16 @@
 //Hint: Store the answer and/or the problem in the form as hidden inputs. 
 //  This will enable your script to "remember" the original 
 //      problem when the user submits the answer.
-$var = 4;
-$question = ' 2 + 2 '
+
+$operands = array('+', '-', '*', '%');
+shuffle($operands);
+$ranOperand = $operands[0];
+$var = rand(1, 10);
+$var2 = rand(1, 10);
+$question = "$var $ranOperand $var2";
+$answer = eval("return $question;");
+var_dump($question);
+var_dump($answer);
 ?>
 <html>
     <head>
@@ -26,15 +34,18 @@ $question = ' 2 + 2 '
         <title>Loren Wetzel</title>
     </head>
     <body>
+        <?php if (!empty($error_message)) { ?>
+        <p><?php echo htmlspecialchars($error_message); ?></p>
+    <?php } ?>
 
-        <form action="target.php" method="get">
+        <form  method="get">
 
             <h1>Answer the question below.</h1>
             <label><?php echo $question; ?> = </label>
             <input type="text" name="answer"><br>
 
             <input type="hidden" name="answerHide"
-                   value="<?php echo $var; ?>">
+                   value="<?php echo $answer; ?>">
 
             <input type="hidden" name="questionHide"
                    value="<?php echo $question; ?>">

@@ -1,15 +1,27 @@
 <?php
 
-$answer = filter_input(INPUT_GET, 'answer', FILTER_VALIDATE_INT);
-$rightAnswer = filter_input(INPUT_GET, 'answerHide');
+$answer = filter_input(INPUT_POST, 'answer', FILTER_VALIDATE_INT);
+$rightAnswer = filter_input(INPUT_POST, 'answerHide', FILTER_VALIDATE_INT);
 
+if ($answer === FALSE ) {
+        $error_message = 'Dude, there needs to be number...'; 
+    }else {
+        $error_message = ''; 
+    }
+    
+     if ($error_message != '') {
+        include('index.php');
+        exit(); 
+    }
+    
 if ($answer === $rightAnswer){
     $message = 'You got it right!!!';
 }else {
     $message = 'Try again!!!';
 }
-
+var_dump($rightAnswer);
 var_dump($answer);
+var_dump($error_message);
         
 ?>
 <html>
