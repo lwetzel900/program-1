@@ -35,10 +35,12 @@ var_dump($answer);
     </head>
     <body>
         <?php if (!empty($error_message)) { ?>
-        <p><?php echo htmlspecialchars($error_message); ?></p>
+        <p><?php echo htmlspecialchars($error_message); 
+        $question = filter_input(INPUT_GET, 'questionHide');
+        $answer = filter_input(INPUT_GET, 'answerHide', FILTER_VALIDATE_INT);?></p>
     <?php } ?>
 
-        <form  method="get">
+        <form action="target.php" method="get">
 
             <h1>Answer the question below.</h1>
             <label><?php echo $question; ?> = </label>
